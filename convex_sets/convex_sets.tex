@@ -31,6 +31,8 @@
 
 \maketitle
 
+\vspace{0.4in}
+
 \subsection*{Exercise 2.1}
 Let $C \subseteq \mathbf{R}^n$ be a convex set, with $x_1, ... , x_k \in C$, and let $\theta_1, ... , \theta_k \in R$ satisfy $\theta_i \geq 0$,
 $\theta_1 + ... + \theta_k = 1$. Show that $\theta_1 x_1 + ... + \theta_k x_k \in C$. (The definition of convexity is that
@@ -72,7 +74,45 @@ this holds for $k = 2$; you must show it for arbitrary $k$.) \textit{Hint}. Use 
 	thus reducing two \(x_i\)'s into one. Repeating this procedure recursively leaves us with a single point \(x_0\), which must lie in \(C\) by its convexity.
 \end{Solution}
 
-\end{document}
+\newpage
+
+\subsection*{Exercise 2.2}
+Show that a set is convex if and only if its intersection with any line is convex. Show that
+a set is affine if and only if its intersection with any line is affine.
+
+\begin{Solution}
+First, let us show that if a set \(C\) is convex, then its intersection with any line \(L\) is also convex.
+This follows easily because a line itself is convex, and the intersection of convex sets is convex.
+Indeed, if \(x_1, x_2 \in C \cap L\) they must belong to \(C\) and \(L\) separately, then by the convexity of \(C\), for any \(\theta \in [0,1]\),
+\[
+    \theta x_1 + (1 - \theta) x_2 \in C,
+\]
+and by the convexity of \(L\),
+\[
+    \theta x_1 + (1 - \theta) x_2 \in L.
+\]
+Hence,
+\[
+    \theta x_1 + (1 - \theta) x_2 \in C \cap L.
+\]
+Implying convexity of $C \cap L$.
+
+For the other direction, let us take any two points \(x_1\) and \(x_2\) in \(C\). 
+Consider the line through \(x_1\) and \(x_2\). 
+Since \(C\) intersects every line in a convex set, it follows that this line, intersected with \(C\), contains all points between \(x_1\) and \(x_2\). 
+In other words, for all \(\theta \in [0,1]\),
+\[
+    \theta x_1 + (1 - \theta) x_2 \in C.
+\]
+Because \(x_1\) and \(x_2\) were chosen arbitrarily, it is true for all $x_1, x_2 \in C$, it follows that \(C\) is convex.
+
+Next, let us turn to the affine case. 
+Suppose \(A\) is an affine set and let \(L\) be a line, which is also affine. 
+The argument is exactly the same as in the convex case, but now we allow \(\theta \in \mathbf{R}\) (not just \([0,1]\)). 
+Thus, the intersection \(A \cap L\) is affine if \(A\) is affine, and the converse holds by an identical reasoning.
+\end{Solution}
+
+
 
 
 \end{document}
