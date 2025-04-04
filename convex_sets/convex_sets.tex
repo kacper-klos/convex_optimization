@@ -1,0 +1,78 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\graphicspath{{./images/}}
+
+\setlength{\parindent}{0in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.8in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{18pt}
+
+\newenvironment{Solution}
+  {\begin{proof}[\textbf{Solution}]}
+  {\end{proof}}
+
+\title{Convex Sets}
+\author{Kacper Kłos}
+
+\begin{document}
+
+\maketitle
+
+\subsection*{Exercise 2.1}
+Let $C \subseteq \mathbf{R}^n$ be a convex set, with $x_1, ... , x_k \in C$, and let $\theta_1, ... , \theta_k \in R$ satisfy $\theta_i \geq 0$,
+$\theta_1 + ... + \theta_k = 1$. Show that $\theta_1 x_1 + ... + \theta_k x_k \in C$. (The definition of convexity is that
+this holds for $k = 2$; you must show it for arbitrary $k$.) \textit{Hint}. Use induction on $k$.
+\begin{Solution}
+We know that 
+\[
+\theta_1 + \cdots + \theta_{k-2} \;+\; \tilde{\theta}_{k-1} \;+\; \tilde{\theta}_{k}
+\;=\;
+1
+\quad \text{and} \quad
+\theta_1 x_1 + \cdots + \theta_{k-2} x_{k-2} \;+\; \tilde{\theta}_{k-1} \tilde{x}_{k-1} \;+\; \tilde{\theta}_{k} \tilde{x}_{k}
+\;\in\; C.
+\]
+Next, define 
+\[
+\theta_{k-1} 
+\;=\; 
+\tilde{\theta}_{k-1} + \tilde{\theta}_{k}.
+\]
+From this we see that
+\[
+1 
+\;=\; 
+\frac{\tilde{\theta}_{k-1} + \tilde{\theta}_{k}}{\theta_{k-1}},
+\]
+so, using the fact that \(C\) is convex, we know that there is a \(x_{k-1}\) such that
+\[
+\tilde{\theta}_{k-1} \tilde{x}_{k-1} + \tilde{\theta}_{k} \tilde{x}_{k}
+\;=\;
+\theta_{k-1} x_{k-1}.
+\]
+Plugging this back into the original equations, we get
+\[
+\theta_1 + \cdots + \theta_{k-1} \;=\; 1
+\quad \text{and} \quad
+\theta_1 x_1 + \cdots + \theta_{k-1} x_{k-1} \;\in\; C,
+\]
+thus reducing two \(x_i\)'s into one. Repeating this procedure recursively leaves us with a single point \(x_0\), which must lie in \(C\) by its convexity.
+\end{Solution}
+
+\end{document}
+
+
+\end{document}
