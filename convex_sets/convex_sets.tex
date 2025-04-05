@@ -81,35 +81,95 @@ Show that a set is convex if and only if its intersection with any line is conve
 a set is affine if and only if its intersection with any line is affine.
 
 \begin{Solution}
-First, let us show that if a set \(C\) is convex, then its intersection with any line \(L\) is also convex.
-This follows easily because a line itself is convex, and the intersection of convex sets is convex.
-Indeed, if \(x_1, x_2 \in C \cap L\) they must belong to \(C\) and \(L\) separately, then by the convexity of \(C\), for any \(\theta \in [0,1]\),
-\[
-    \theta x_1 + (1 - \theta) x_2 \in C,
-\]
-and by the convexity of \(L\),
-\[
-    \theta x_1 + (1 - \theta) x_2 \in L.
-\]
-Hence,
-\[
-    \theta x_1 + (1 - \theta) x_2 \in C \cap L.
-\]
-Implying convexity of $C \cap L$.
+	First, let us show that if a set \(C\) is convex, then its intersection with any line \(L\) is also convex.
+	This follows easily because a line itself is convex, and the intersection of convex sets is convex.
+	Indeed, if \(x_1, x_2 \in C \cap L\) they must belong to \(C\) and \(L\) separately, then by the convexity of \(C\), for any \(\theta \in [0,1]\),
+	\[
+		\theta x_1 + (1 - \theta) x_2 \in C,
+	\]
+	and by the convexity of \(L\),
+	\[
+		\theta x_1 + (1 - \theta) x_2 \in L.
+	\]
+	Hence,
+	\[
+		\theta x_1 + (1 - \theta) x_2 \in C \cap L.
+	\]
+	Implying convexity of $C \cap L$.
 
-For the other direction, let us take any two points \(x_1\) and \(x_2\) in \(C\). 
-Consider the line through \(x_1\) and \(x_2\). 
-Since \(C\) intersects every line in a convex set, it follows that this line, intersected with \(C\), contains all points between \(x_1\) and \(x_2\). 
-In other words, for all \(\theta \in [0,1]\),
-\[
-    \theta x_1 + (1 - \theta) x_2 \in C.
-\]
-Because \(x_1\) and \(x_2\) were chosen arbitrarily, it is true for all $x_1, x_2 \in C$, it follows that \(C\) is convex.
+	For the other direction, let us take any two points \(x_1\) and \(x_2\) in \(C\).
+	Consider the line through \(x_1\) and \(x_2\).
+	Since \(C\) intersects every line in a convex set, it follows that this line, intersected with \(C\), contains all points between \(x_1\) and \(x_2\).
+	In other words, for all \(\theta \in [0,1]\),
+	\[
+		\theta x_1 + (1 - \theta) x_2 \in C.
+	\]
+	Because \(x_1\) and \(x_2\) were chosen arbitrarily, it is true for all $x_1, x_2 \in C$, it follows that \(C\) is convex.
 
-Next, let us turn to the affine case. 
-Suppose \(A\) is an affine set and let \(L\) be a line, which is also affine. 
-The argument is exactly the same as in the convex case, but now we allow \(\theta \in \mathbf{R}\) (not just \([0,1]\)). 
-Thus, the intersection \(A \cap L\) is affine if \(A\) is affine, and the converse holds by an identical reasoning.
+	Next, let us turn to the affine case.
+	Suppose \(A\) is an affine set and let \(L\) be a line, which is also affine.
+	The argument is exactly the same as in the convex case, but now we allow \(\theta \in \mathbf{R}\) (not just \([0,1]\)).
+	Thus, the intersection \(A \cap L\) is affine if \(A\) is affine, and the converse holds by an identical reasoning.
+\end{Solution}
+
+
+\vspace{0.15in}
+
+\subsection*{Exercise 2.5}
+What is the distance between two parallel hyperplanes
+\(\{x \in \mathbf{R}^n \mid a^T x = b_1\}\)
+and
+\(\{x \in \mathbf{R}^n \mid a^T x = b_2\}\)?
+
+\begin{Solution}
+	We know that \(a\) is parallel to the plane. Subtracting both equations, we get
+	\[
+		a^T (x_1 - x_2) = b_1 - b_2.
+	\]
+	Taking the Euclidean norm on both sides, and noting that the distance is the minimum possible value of \(\|x_1 - x_2\|_2\), we write
+	\[
+		\|a^T (x_1 - x_2)\|_2 = |b_1 - b_2|.
+	\]
+	From the standard norm inequality,
+	\[
+		\|a^T (x_1 - x_2)\|_2
+		\;\le\;
+		\|x_1 - x_2\|_2 \,\|a^T\|_2.
+	\]
+	The equality here represents the minimal distance. Consequently, dividing by constant \(\|a^T\|_2\)
+	\[
+		\min\bigl(\|x_1 - x_2\|_2\bigr)
+		\;=\;
+		\frac{|b_1 - b_2|}{\|a^T\|_2}.
+	\]
+	This value is the distance between the two hyperplanes.
+\end{Solution}
+
+
+\vspace{0.15in}
+
+\subsection*{Exercise 2.7}
+\textit{Voronoi description of halfspace}. Let \(a\) and \(b\) be distinct points in $\mathbf{R}^n$.
+Show that the set of all points that are closer (in Euclidean norm) to \(a\) than \(b\), i.e., $\{x \, | \, \| x - a \|_2 \leq \| x - b \|_2\}$,
+is a halfspace. Describe it explicitly as an inequality of the form $c^T x \leq d$. Draw a picture.
+\begin{Solution}
+	Let us take a point between \(a\) and \(b\):
+	\[
+		x_0 \;=\; \frac{a+b}{2}.
+	\]
+	Then let \(c\) be the vector pointing from \(a\) to \(b\):
+	\[
+		c \;=\; b - a.
+	\]
+	If we move in a direction perpendicular to \(c\), we neither move closer to \(a\) nor to \(b\). Thus, we can describe a hyperplane defining the boundary between the two halfspaces:
+	\[
+		\{\,x : c^T (x - x_0) = 0\}.
+	\]
+	Therefore, the halfspace consisting of points closer to \(a\) is
+	\[
+		\{\,x : c^T x \;\le\; c^T x_0\}.
+	\]
+	(A figure may be provided later.)
 \end{Solution}
 
 
