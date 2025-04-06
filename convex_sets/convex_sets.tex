@@ -5,7 +5,7 @@
 \usepackage{lmodern}
 \usepackage{amsmath}
 \usepackage{latexsym,amsfonts,amssymb,amsthm,amsmath}
-\usepackage{enumitem}
+\usepackage[shortlabels]{enumitem}
 \usepackage{hyperref}
 \usepackage{float}
 \usepackage{graphicx}
@@ -172,6 +172,124 @@ is a halfspace. Describe it explicitly as an inequality of the form $c^T x \leq 
 	(A figure may be provided later.)
 \end{Solution}
 
+
+
+\vspace{0.15in}
+
+\subsection*{Exercise 2.8}
+Which of the following sets \(S\) are polyhedra? If possible, express \(S\) in the form $S = \{x \, | \, Ax \preceq b , \, Fx = g\}$.
+\vspace{0.1in}
+\begin{enumerate}[label=(\alph*)]
+
+	\item
+	      \[
+		      S = \{\,y_1 a_1 + y_2 a_2 \mid -1 \leq y_1 \leq 1,\,-1 \leq y_2 \leq 1\},
+		      \quad
+		      \text{where }a_1, a_2 \in \mathbf{R}^n.
+	      \]
+
+	      \begin{Solution}
+		      Let us look at the boundary, where \(y_1\) and \(y_2\) are equal to their constraints:
+		      \[
+			      C
+			      =
+			      \{\,a_1 + a_2,\,-a_1 + a_2,\,
+			      a_1 - a_2,\,-a_1 - a_2\}.
+		      \]
+		      We see the swept region is a kind of parallelogram, which is a polyhedron.
+	      \end{Solution}
+
+	\item
+	      \[
+		      S
+		      =
+		      \{\,x \in \mathbf{R}^n \mid x \succeq 0,\,
+		      \mathbf{1}^T x = 1,\,
+		      \sum_{i=1}^n x_i a_i = b_1,\,
+		      \sum_{i=1}^n x_i a_i^2 = b_2\},
+	      \]
+	      where \(a_1,\dots,a_n \in \mathbf{R}\) and \(b_1, b_2 \in \mathbf{R}\).
+
+	      \begin{Solution}
+		      We see that it is a polyhedron by writing it as
+		      \[
+			      -\,\mathbf{I}\,x \preceq 0
+		      \]
+		      and
+		      \[
+			      \begin{bmatrix}
+				      1     & 1     & \cdots & 1     \\
+				      a_1   & a_2   & \cdots & a_n   \\
+				      a_1^2 & a_2^2 & \cdots & a_n^2
+			      \end{bmatrix}
+			      x
+			      =
+			      \begin{bmatrix}
+				      1   \\[6pt]
+				      b_1 \\[6pt]
+				      b_2
+			      \end{bmatrix}.
+		      \]
+	      \end{Solution}
+
+	\item
+	      \[
+		      S
+		      =
+		      \bigl\{\,
+		      x \in \mathbf{R}^n
+		      \,\bigm|\,
+		      x \succeq 0,\,
+		      x^T y \leq 1
+		      \text{ for all }y\text{ with }\|y\|_2 = 1
+		      \bigr\}.
+	      \]
+
+	      \begin{Solution}
+		      The term \(x^T y\) is the dot product with a unit vector. Since \(x\) is chosen arbitrarily, we can set
+		      \(\displaystyle y = \frac{x}{\|x\|_2}\)
+		      to examine the boundary of the set, which gives
+		      \[
+			      \|x\|_2 \,\leq\, 1.
+		      \]
+		      Along with \(x \succeq 0\), this describes a portion of the \(n\)-dimensional sphere lying in the nonnegative orthant. Hence, it is not a polyhedron.
+	      \end{Solution}
+
+	\item
+	      \[
+		      S
+		      =
+		      \bigl\{\,
+		      x \in \mathbf{R}^n
+		      \,\bigm|\,
+		      x \succeq 0,\,
+		      x^T y \leq 1
+		      \text{ for all }y\text{ with }
+		      \sum_{i=1}^n |y_i| = 1
+		      \bigr\}.
+	      \]
+
+	      \begin{Solution}
+		      Let us again look at the boundary. The quantity \(x^T y\) is largest when \(y_i = 1\) for the coordinate \(i\) that maximizes \(x_i\). Thus the shape is bounded by
+		      \(\max_i x_i \leq 1\)
+		      and must lie in the nonnegative orthant.
+		      Hence, it can be described by
+		      \[
+			      \begin{bmatrix}
+				      \mathbf{I}_n \\
+				      -\,\mathbf{I}_n
+			      \end{bmatrix}
+			      x
+			      \preceq
+			      \begin{bmatrix}
+				      1 \\[3pt]
+				      0
+			      \end{bmatrix},
+		      \]
+		      so it is a polyhedron.
+	      \end{Solution}
+
+\end{enumerate}
 
 
 
