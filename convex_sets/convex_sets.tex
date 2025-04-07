@@ -292,5 +292,44 @@ Which of the following sets \(S\) are polyhedra? If possible, express \(S\) in t
 \end{enumerate}
 
 
+\vspace{0.15in}
+
+\subsection*{Exercise 2.11}
+\textit{Hyperbolic sets}. Show that the \textit{hyperbolic} set 
+\(\{\, x \in \mathbf{R}^2_+ \mid x_1 x_2 \geq 1\}\)
+is convex. More generally, show that 
+\(\{\, x \in \mathbf{R}^n_+ \mid \prod_{i=1}^n x_i \geq 1 \}\)
+is convex. 
+
+\textit{Hint}. If \(a,b \geq 0\) and \(0 \leq \theta \leq 1\), then 
+\(a^{\theta} b^{1-\theta} \leq \theta a + (1 - \theta)b\).
+
+\begin{Solution}
+Let us go directly to the general case. Suppose \(x,\,y \succeq 0\) lie in the set, which means:
+\[
+  \prod_{i=1}^n x_i \;\geq\; 1
+  \quad\text{and}\quad
+  \prod_{i=1}^n y_i \;\geq\; 1.
+\]
+We want to show that for any convex combination \(z = \theta x + (1-\theta)\,y\), with \(0 \leq \theta \leq 1\), the point \(z\) also lies in the set; in other words, its components’ product is at least 1:
+\[
+  \prod_{i=1}^n z_i
+  \;=\;
+  \prod_{i=1}^n 
+  \bigl(\theta x_i + (1-\theta)\,y_i\bigr)
+  \;\geq\;
+  \prod_{i=1}^n x_i^{\theta}\,y_i^{1-\theta}
+  \;\geq\;
+  1^{\theta}\,1^{1-\theta}
+  \;\geq\;
+  1.
+\]
+The first inequality uses the hint 
+\(\bigl(\theta a + (1-\theta)\,b\bigr) \geq a^{\theta} b^{1-\theta}\) 
+for \(a,b \geq 0\) and \(0 \leq \theta \leq 1\). 
+Thus, \(\prod_{i=1}^n z_i \geq 1\), so \(z\) is in the set. 
+\end{Solution}
+
+
 
 \end{document}
