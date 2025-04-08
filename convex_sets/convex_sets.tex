@@ -295,41 +295,184 @@ Which of the following sets \(S\) are polyhedra? If possible, express \(S\) in t
 \vspace{0.15in}
 
 \subsection*{Exercise 2.11}
-\textit{Hyperbolic sets}. Show that the \textit{hyperbolic} set 
+\textit{Hyperbolic sets}. Show that the \textit{hyperbolic} set
 \(\{\, x \in \mathbf{R}^2_+ \mid x_1 x_2 \geq 1\}\)
-is convex. More generally, show that 
+is convex. More generally, show that
 \(\{\, x \in \mathbf{R}^n_+ \mid \prod_{i=1}^n x_i \geq 1 \}\)
-is convex. 
+is convex.
 
-\textit{Hint}. If \(a,b \geq 0\) and \(0 \leq \theta \leq 1\), then 
+\textit{Hint}. If \(a,b \geq 0\) and \(0 \leq \theta \leq 1\), then
 \(a^{\theta} b^{1-\theta} \leq \theta a + (1 - \theta)b\).
 
 \begin{Solution}
-Let us go directly to the general case. Suppose \(x,\,y \succeq 0\) lie in the set, which means:
-\[
-  \prod_{i=1}^n x_i \;\geq\; 1
-  \quad\text{and}\quad
-  \prod_{i=1}^n y_i \;\geq\; 1.
-\]
-We want to show that for any convex combination \(z = \theta x + (1-\theta)\,y\), with \(0 \leq \theta \leq 1\), the point \(z\) also lies in the set; in other words, its components’ product is at least 1:
-\[
-  \prod_{i=1}^n z_i
-  \;=\;
-  \prod_{i=1}^n 
-  \bigl(\theta x_i + (1-\theta)\,y_i\bigr)
-  \;\geq\;
-  \prod_{i=1}^n x_i^{\theta}\,y_i^{1-\theta}
-  \;\geq\;
-  1^{\theta}\,1^{1-\theta}
-  \;\geq\;
-  1.
-\]
-The first inequality uses the hint 
-\(\bigl(\theta a + (1-\theta)\,b\bigr) \geq a^{\theta} b^{1-\theta}\) 
-for \(a,b \geq 0\) and \(0 \leq \theta \leq 1\). 
-Thus, \(\prod_{i=1}^n z_i \geq 1\), so \(z\) is in the set. 
+	Let us go directly to the general case. Suppose \(x,\,y \succeq 0\) lie in the set, which means:
+	\[
+		\prod_{i=1}^n x_i \;\geq\; 1
+		\quad\text{and}\quad
+		\prod_{i=1}^n y_i \;\geq\; 1.
+	\]
+	We want to show that for any convex combination \(z = \theta x + (1-\theta)\,y\), with \(0 \leq \theta \leq 1\), the point \(z\) also lies in the set; in other words, its components’ product is at least 1:
+	\[
+		\prod_{i=1}^n z_i
+		\;=\;
+		\prod_{i=1}^n
+		\bigl(\theta x_i + (1-\theta)\,y_i\bigr)
+		\;\geq\;
+		\prod_{i=1}^n x_i^{\theta}\,y_i^{1-\theta}
+		\;\geq\;
+		1^{\theta}\,1^{1-\theta}
+		\;\geq\;
+		1.
+	\]
+	The first inequality uses the hint
+	\(\bigl(\theta a + (1-\theta)\,b\bigr) \geq a^{\theta} b^{1-\theta}\)
+	for \(a,b \geq 0\) and \(0 \leq \theta \leq 1\).
+	Thus, \(\prod_{i=1}^n z_i \geq 1\), so \(z\) is in the set.
 \end{Solution}
 
 
+\vspace{0.15in}
+
+\subsection*{Exercise 2.12}
+Which of the following sets are convex?
+\begin{enumerate}[label=(\alph*)]
+
+	\item
+	      A slab, \emph{i.e.}, a set of the form
+	      \(\{\,x \in \mathbf{R}^n \mid \alpha \leq a^T x \leq \beta\}\).
+	      \begin{Solution}
+		      Suppose \(x_1\) and \(x_2\) lie in the set. For \(0 \leq \theta \leq 1\), define
+		      \[
+			      x_3 \;=\; \theta x_1 \;+\; (1-\theta)\,x_2.
+		      \]
+		      Then
+		      \[
+			      \alpha
+			      \;\le\;
+			      \theta\,a^T x_1 + (1-\theta)\,a^T x_2
+			      \;\le\;
+			      \beta,
+		      \]
+		      which shows \(x_3\) is also in the set. Therefore, the set is convex.
+	      \end{Solution}
+
+	\item
+	      A rectangle, \emph{i.e.}, a set of the form
+	      \(\{\,x \in \mathbf{R}^n \mid \alpha_i \leq x_i \leq \beta_i,\; i=1,\dots,n\}\).
+	      (A rectangle is sometimes called a \emph{hyperrectangle} when \(n>2\).)
+	      \begin{Solution}
+		      As in the previous example, let \(x,y\) be in the set. Then for \(0 \le \theta \le 1\),
+		      \[
+			      \alpha_i
+			      \;\le\;
+			      \theta\,x_i + (1-\theta)\,y_i
+			      \;\le\;
+			      \beta_i
+			      \quad
+			      \text{for each }i.
+		      \]
+		      Hence the rectangle is convex.
+	      \end{Solution}
+
+	\item
+	      A \emph{wedge}, \emph{i.e.},
+	      \(\{\,x \in \mathbf{R}^n \mid a_1^T x \le b_1,\; a_2^T x \le b_2\}\).
+	      \begin{Solution}
+		      Let \(x_1\) and \(x_2\) lie in the set, and let \(0 \le \theta \le 1\). Then
+		      \[
+			      a_1^T \bigl(\theta x_1 + (1-\theta)\,x_2\bigr)
+			      \;=\;
+			      \theta\,a_1^T x_1 + (1-\theta)\,a_1^T x_2
+			      \;\le\;
+			      \theta\,b_1 + (1-\theta)\,b_1
+			      \;=\;
+			      b_1.
+		      \]
+		      Similarly,
+		      \[
+			      a_2^T \bigl(\theta x_1 + (1-\theta)\,x_2\bigr)
+			      \;\le\;
+			      b_2.
+		      \]
+		      Thus the wedge is convex.
+	      \end{Solution}
+
+	\item
+	      The set of points closer to a given point \(x_0\) than to a given set \(S\),
+	      \[
+		      \bigl\{
+		      x \;\bigm|\;
+		      \|x - x_0\|_2 \,\le\, \|x - y\|_2
+		      \text{ for all }y \in S
+		      \bigr\}.
+	      \]
+	      \begin{Solution}
+		      In the case where \(S\) is just a single point, as shown in an earlier exercise (2.7), the set becomes a halfspace, which is convex. If \(S\) has two points, then we have an intersection of two such halfspaces, which remains convex. By extension, for an arbitrary set \(S\), the set in question is the intersection of halfspaces (one for each point in \(S\)), and since the intersection of convex sets is convex, the result follows.
+	      \end{Solution}
+
+	\item
+	      The set of points closer to one set \(S\) than another set \(T\), \emph{i.e.},
+	      \[
+		      \bigl\{
+		      x \;\bigm|\;
+		      \mathbf{dist}(x,S)
+		      \,\le\,
+		      \mathbf{dist}(x,T)
+		      \bigr\},
+	      \]
+	      where \(\mathbf{dist}(x,S) = \inf\,\{\|x-z\|_2 : z \in S\}\).
+	      \begin{Solution}
+		      Consider \(S = \{-1,\,1\}\) and \(T = \{0\}\) on the real line. The points \(-1\) and \(1\) are each closer to \(S\) than to \(T\), so they lie in the set. However, \(x=0\) is not in the set because it is equally close (and hence not strictly closer) to \(S\) compared to \(T\). The set thus fails to be convex, as it does not contain the midpoint of \(-1\) and \(1\). Therefore, in general, this set need not be convex.
+	      \end{Solution}
+
+	\item
+	      The set \(\{\,x \mid x + S_2 \subseteq S_1\}\), where \(S_1,S_2 \subseteq \mathbf{R}^n\) and \(S_1\) is convex.
+	      \begin{Solution}
+		      Let \(x_1\) and \(x_2\) lie in \(\{x : x + S_2 \subseteq S_1\}\), and let \(0 \le \theta \le 1\). For any \(s_0 \in S_2\), we must check if
+		      \[
+			      \theta x_1 + (1-\theta)\,x_2 \;+\; s_0
+			      \;\in\;
+			      S_1.
+		      \]
+		      Since \(x_1 + s_0,\,x_2 + s_0 \in S_1\), there exist points
+		      \(s_1 = x_1 + s_0\) and \(s_2 = x_2 + s_0\), both in \(S_1\). By the convexity of \(S_1\),
+		      \[
+			      \theta\,s_1 + (1-\theta)\,s_2 \;\in\; S_1,
+		      \]
+		      which shows \(\theta x_1 + (1-\theta)x_2 + s_0 \in S_1\). Hence the set is convex.
+	      \end{Solution}
+
+	\item
+	      The set of points \(x\) whose distance to \(a\) does not exceed a fixed fraction \(\theta\) of the distance to \(b\), \emph{i.e.},
+	      \[
+		      \{\,x \mid \|x - a\|_2 \,\le\, \theta\,\|x - b\|_2\},
+		      \quad
+		      \text{where }a \neq b
+		      \text{ and } 0 \le \theta \le 1.
+	      \]
+	      \begin{Solution}
+		      The special cases \(\theta = 0\) (which yields \(\{a\}\)) and \(\theta = 1\) (which yields a halfspace) are straightforward. For \(0 < \theta < 1\), we can square both sides:
+		      \[
+			      \|x - a\|_2^2
+			      \;\le\;
+			      \theta^2 \,\|x - b\|_2^2.
+		      \]
+		      Expanding and rearranging leads to
+		      \[
+			      (1 - \theta^2)\,x^T x
+			      \;-\;
+			      2\,(a - \theta^2 b)^T x
+			      \;+\;
+			      \bigl(\|a\|_2^2 \;-\;\theta^2\,\|b\|_2^2\bigr)
+			      \;\le\;
+			      0,
+		      \]
+		      Which can be written in a more suggestive form
+		      \[
+			      \|x - \frac{a-\theta^2 b}{1-\theta^2} \|_2^2 \leq \frac{\theta^2}{(1-\theta^2)^2} \|a-b\|_2^2
+		      \]
+		      We see the set is a sphere, hence it is convex.
+	      \end{Solution}
+\end{enumerate}
 
 \end{document}
