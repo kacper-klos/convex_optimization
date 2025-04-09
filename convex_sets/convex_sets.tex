@@ -475,4 +475,36 @@ Which of the following sets are convex?
 	      \end{Solution}
 \end{enumerate}
 
+\vspace{0.15in}
+
+\subsection*{Exercise 2.15}
+\textit{Some sets of probability distributions}. Let \(x\) be a real-valued random variable with \textbf{prob}\((x = a_i) = p_i\), \(i = 1,...,n\), where \(a_1 \leq a_2 \leq ... \leq a_n\). Of course \(p \in \mathbf{R}^n\) lies in the standard probability simplex \(P = \{p \, | \, \mathbf{1}^T p = 1, p \succeq 0\}\).
+Which of the following conditions are convex in p? (This is, for which of the following conditions in the set of \(p \in P\) that satisfy the condition convex?)
+\begin{enumerate}[label=(\alph*)]
+	\item
+	      \(\alpha \leq \mathbf{E}f(x) \leq \beta\), where \(\mathbf{E}f(x)\) is the expected value of f(x), \textit{i.e.}, \(\mathbf{E}f(x) = \sum_{i=1}^n p_i f(a_i)\). (The function \(f:\mathbf{R} \rightarrow \mathbf{R}\) is given.)
+	      \begin{Solution}
+		      As we can easily see the function \(p \rightarrow \sum_{i=1}^n p_i f(a_1)\) is linear. So the constrains are linear inequalities, which is convex as it is intersection of two halfspaces and probability simplex.
+	      \end{Solution}
+
+	\item
+	      \textbf{prob}\((x \ge \alpha) \leq \beta\).
+	      \begin{Solution}
+		      As we can notice this is equivalent to linear inequality
+		      \[
+			      \sum_{\alpha_i \ge \alpha}p_i \leq \beta
+		      \]
+		      So this set must be convex as well.
+	      \end{Solution}
+
+	\item
+	      \(\mathbf{E}|x^3| \leq \alpha \mathbf{E} |x|\)
+	      \begin{Solution}
+		      We can rewrite expression to a linear inequality
+		      \[
+			      0 \leq \sum_{i=1} p_i(\alpha |a_i| - |a_i^3|)
+		      \]
+	      \end{Solution}
+\end{enumerate}
+
 \end{document}
