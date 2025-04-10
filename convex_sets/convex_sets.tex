@@ -505,6 +505,35 @@ Which of the following conditions are convex in p? (This is, for which of the fo
 			      0 \leq \sum_{i=1} p_i(\alpha |a_i| - |a_i^3|)
 		      \]
 	      \end{Solution}
+
+	\item
+	      \(\mathbf{E}x^2 \leq \alpha\).
+	      \begin{Solution}
+		      Again we have a linear inequality
+		      \[
+			      \sum_{i=1}^n p_i a_i^2 \geq \alpha
+		      \]
+	      \end{Solution}
+
+	\item
+	      \(\mathbf{E}x^2 \leq \alpha\).
+	      \begin{Solution}
+		      The same as previous one, a linear inequality
+		      \[
+			      \sum_{i=1}^n p_i a_i^2 \geq \alpha
+		      \]
+	      \end{Solution}
+
+	\item
+	      \(\mathbf{var}(x) \leq \alpha\), where \(\mathbf{var}(x) = \mathbf{E}(x-\mathbf{E}x)^2\) is the variance of \(x\).
+	      \begin{Solution}
+		      Expanding the expression for variance \(\mathbf{var}(x) = \mathbf{E}(x^2) - (\mathbf{E}(x))^2\)
+		      \[
+			      \sum_{i=1}^n p_i a_i^2 - (\sum_{i=1}^n p_i a_i)^2 \leq \alpha
+		      \]
+		      We can see it is a difference of linear and quadratic function. So we can find an example that it is not a convex function. For instance a simple case \(n = 2\), \(a_1 = 1\), \(a_2 = 0\) and we take two points \(p_1 = (1, 0)\) and \(p_2 = (0, 1)\).
+		      For \(p_1\) and \(p_2\) we get \(\mathbf{var}(x) = 0\), but for combination like \(p_3 = (1/2, 1/2)\) we get \(\mathbf{var}(x) = 1/2\), so \(\alpha = 1/3\) do not satisfy the convexity.
+	      \end{Solution}
 \end{enumerate}
 
 \end{document}
